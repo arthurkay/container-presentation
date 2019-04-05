@@ -53,7 +53,15 @@ The dataStore is a service name of the MySQL container. This container has a MyS
 ### adminer
 
 Adminer is in many ways similar to the traditional `phpmyadmin`. Only adminer is loosely coupled with the the programming language being used.
-This tool allows as t be able to communicate with the database using a web GUI.
+This tool allows as to be able to communicate with the database using a web GUI.
+Among the databases supported are:
+
+- MySQL
+- MsSQL
+- SQLite
+- Postgres
+
+e.t.c.
 
 ## SERVICES
 
