@@ -48,13 +48,13 @@ CMD ["node", "app.js"]
 
 The `FROM` tag is used to tell docker what image to build your container on.
 
-The `RUN` commands to executes commands inside the container once its built.
+The `RUN` command executes commands inside the container once its built.
 
 The `COPY` to copy files from the local machine into the container.
 
-The `WORKDIR` to create set a directory where the following commands will be run from.
+The `WORKDIR` sets a directory where the following commands will be run from.
 
-The `CMD` to pass the command and parameters to be run up[on successful container build and configurations.
+The `CMD` flag is used to pass the command and parameters to be run upon successful container build and configurations.
 
 
 ### DOCKER-COMPOSE
@@ -63,7 +63,7 @@ Docker-commpose is used for creating multiple containers as servies and a virtua
 You don't have to worry about setting up a network, docker-compose handles that for you.
 [Docker-compose](https://github.com/arthurkay/container-presentation/blob/copy/docker-compose.yaml) is built in a similar manner, only it builds multiple containers at once, while the [Dockerfile](https://github.com/arthurkay/container-presentation/blob/copy/Dockerfile) only builds one container.
 
-It is also considered and industry standard to put one service per container. Hence, the reason to run the below services in separate containers.
+It is also considered an industry standard to put one service per container. Hence, the reason to run the below services in separate containers.
 
 Below is a snippet of what is found in a `Docker-compose.yml` file.
 
@@ -82,7 +82,7 @@ services:
       - dataStore
 ```
 
-The docker compose file is written in 'yaml' `(Yet Another Markup Language)`. And it starts by decalring the yaml version used, in this case version 3.
+The docker compose file is written in 'yaml' `(Yet Another Markup Language)`. And it starts by declaring the yaml version used, in this case version 3.
 
 The `services` indicates the beginning of service delarations.
 
@@ -92,11 +92,11 @@ The `build` sometimes `image` indicates the base image for this service. In this
 
 If we use `image` instead of `build` we are telling docker to essentially download a container from the [Docker Hub](https://hub.docker.com).
 
-The `ports` indicate the mapping of ports from container to host. The first port is used to access the conatiner on the portits listening in internally.
+The `ports` indicate the mapping of ports from container to host. The first port declared is the port for the host machine and is used to access the container on the ports internally.
 
-The `volumes` is used to mapp a host file system into the container, this allows our app to persist data beyond the container life cycle.
+The `volumes` is used to map a host file system into the container, this allows our app to persist data beyond the container life cycle. This is so because the information is on the host machine, but gets synced into the container in real time.
 
-The `restart` tells the container to start if it goes off, by technical fault.
+The `restart` tells the container to start if it goes off.
 
 The `depends_on` flag tells the service to start the service it depends on if that service is not available.
 
@@ -112,11 +112,11 @@ The web service is inherited from the image built by docker in the [Dockerfile](
 
 The orchestration of the virtual network and name resolution is handled by [Docker-compose](https://github.com/arthurkay/container-presentation/blob/copy/docker-compose.yaml) to create an application that is decoupled in architecture, but still runs like a tradition application.
 
-This is the core app
+This is what makes up the core app.
 
 ### dataStore
 
-The dataStore is a service name of the MySQL container. This container has a MySQL database attached to it and volume mappings to the local machine.
+The dataStore is a service name of the MySQL container. This container has a MySQL database attached to it and volume mappings to the local machine. This too is done for persisiting data beyond the container life cycle.
 
 ### adminer
 
