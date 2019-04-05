@@ -1,5 +1,7 @@
 # CONTAINER ORCHESTRATION
 
+![Docker Logo](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwia1MHW6bjhAhUth-AKHSNEB10QjRx6BAgBEAU&url=%2Furl%3Fsa%3Di%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dimages%26cd%3D%26ved%3D%26url%3Dhttps%253A%252F%252F1000logos.net%252Fdocker-logo%252F%26psig%3DAOvVaw2lNdEVRfruIexZOdwE5pB-%26ust%3D1554549322718737&psig=AOvVaw2lNdEVRfruIexZOdwE5pB-&ust=1554549322718737)
+
 ## DOCKER & DOCKER COMPOSE
 
 > Author: Arthur Kalikiti
@@ -35,8 +37,8 @@ This project contains three (3)_conatiners.
 
 ### web
 
-The web service is inherited from the image built by docker in the [Dockerfile](Dockerfile)
-The orchestration of the virtual network and name resolution is handled by [Docker-compose](Docker-compose) to create an application that is decoupled in architecture, but still runs like a tradition application.
+The web service is inherited from the image built by docker in the [Dockerfile](https://github.com/arthurkay/container-presentation/blob/copy/Dockerfile)
+The orchestration of the virtual network and name resolution is handled by [Docker-compose](https://github.com/arthurkay/container-presentation/blob/copy/docker-compose.yaml) to create an application that is decoupled in architecture, but still runs like a tradition application.
 
 ### HOW TO BUILD THIS APP
 
