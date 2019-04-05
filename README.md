@@ -5,7 +5,11 @@
 ## DOCKER & DOCKER COMPOSE
 
 > Author: Arthur Kalikiti
-> Email: [Arthur's email](arthur@kalikiti.net)
+
+> Email: arthur@kalikiti.net
+
+> Website: https://arthur.kalikiti.net
+
 
 ### INTRODUCTION
 
