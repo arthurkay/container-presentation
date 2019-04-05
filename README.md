@@ -23,18 +23,69 @@ To this, there are a number of tools one can use. These include:
 - Linux VServer
 - Docker
 
-This example only talks about [Docker](https://docker.com) and Docker compose.
+This example only talks about [Docker](https://docker.com) and [Docker compose](https://docs.docker.com/compose).
 
 In this code base there are two (2) docker container files, the rest is just code that is required to run a NodeJS app (JavaScript on the backend). I also used the ejs templating engine for the views.
+`Note:` You can use any programming language, and any type of application can be containerised.
 
 ### DOCKER
 
-Docker is the conatiner orchestration tool used in this project to build an ubuntu container, with nodejs npm and all its dependencies.
+Docker is the container orchestration tool used in this project to build an ubuntu container, with nodejs, npm, and all its dependencies.
+Below is an example of how to structure the Dockerfile with container build instructions.
+
+```
+FROM ubuntu
+
+RUN apt-get update -y && \
+    apt-get install nodejs npm -y
+
+COPY . /var/www/html
+
+WORKDIR /var/www/html
+
+CMD ["node", "app.js"]
+```
+
+The `FROM` tag is used to tell docker what image to build your container on.
+The `RUN` commands to executes commands inside the container once its built.
+The `COPY` to copy files from the local machine into the container.
+The `WORKDIR` to create set a directory where the following commands will be run from.
+The `CMD` to pass the command and parameters to be run up[on successful container build and configurations.
+] 
 
 ### DOCKER-COMPOSE
 
 Docker-commpose is used for creating multiple containers as servies and a virtual network that allows services running in standalone containers to communicate with each other.
-This project contains three (3) conatiners.
+You don't have to worry about setting up a network, docker-compose handles that for you.
+[Docker-compose](https://github.com/arthurkay/container-presentation/blob/copy/docker-compose.yaml) is built in a similar manner, only it builds multiple containers at once, while the [Dockerfile](https://github.com/arthurkay/container-presentation/blob/copy/Dockerfile) only builds one container.
+It is also considered and industry standard to put one service per container. Hence, the reason to run the below services in separate containers.
+Below is a snippet of what is found in a `Docker-compose.yml file`.
+
+```
+version: '3'
+services:
+
+  web:
+    build: .
+    ports:
+      - 8090:8001
+    volumes:
+      - .:/var/www/html/
+    restart: always
+    depends_on: 
+      - dataStore
+```
+
+The docker compose file is written in yaml `(Yet Another Markup Language)`. And it starts by decalring the yaml version used, in this case version 3.
+The `services` indicates the beginning of service delarations.
+The `web` can have any name, this is just the service name, it is also what will be used for name resolution by the virtual networks DNS. for example to have another service call this service, one just needs to invoke `http://web`. The virtual network is smart enough to resolve to this service with just that URL.
+The `build` sometimes `image` indicates the base image for this service. In this example a `.` was used to indicate we are inheriting this image from a [Dockerfile](https://github.com/arthurkay/container-presentation/blob/copy/Dockerfile). If we had not used `Dockerfile` as the name of this file, we where supposed to put the name used, otherwise `Dockerfile` is the default name and hence no need to mention it.
+If we use `image` instead of `build` we are telling docker to essentially download a container from the [Docker Hub](https://hub.docker.com).
+The `ports` indicate the mapping of ports from container to host. The first port is used to access the conatiner on the portits listening in internally.
+The `volumes` is used to mapp a host file system into the container, this allows our app to persist data beyond the container life cycle.
+The `restart` tells the container to start if it goes off, by technical fault.
+The `depends_on` flag tells the service to start the service it depends on if that service is not available.
+This project contains three (3) container services.
 
 - web
 - dataStore
