@@ -1,6 +1,6 @@
 # CONTAINER ORCHESTRATION
 
-![Docker Logo](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwia1MHW6bjhAhUth-AKHSNEB10QjRx6BAgBEAU&url=%2Furl%3Fsa%3Di%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dimages%26cd%3D%26ved%3D%26url%3Dhttps%253A%252F%252F1000logos.net%252Fdocker-logo%252F%26psig%3DAOvVaw2lNdEVRfruIexZOdwE5pB-%26ust%3D1554549322718737&psig=AOvVaw2lNdEVRfruIexZOdwE5pB-&ust=1554549322718737)
+![Docker Logo](https://1000logos.net/wp-content/uploads/2017/07/Docker-Logo.png)
 
 ## DOCKER & DOCKER COMPOSE
 
