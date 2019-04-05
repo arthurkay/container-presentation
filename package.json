@@ -1,0 +1,32 @@
+{
+  "name": "jukebox",
+  "version": "1.0.0",
+  "description": "Cloud DJ Music app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthurkay/jukebox.git"
+  },
+  "keywords": [
+    "JukeBox",
+    "Music",
+    "DJ"
+  ],
+  "author": "Arthur Kalikiti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arthurkay/jukebox/issues"
+  },
+  "homepage": "https://github.com/arthurkay/jukebox#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "expresss": "0.0.0",
+    "mongodb": "^3.1.13"
+  }
+}

@@ -1,0 +1,30 @@
+version: '3'
+services:
+
+  web:
+    build: .
+    ports:
+      - 8090:8001
+    volumes:
+      - .:/var/www/html/
+    restart: always
+    depends_on: 
+      - dataStore
+
+  dataStore:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: DB
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_USER: arthur
+      MYSQL_PASSWORD: secret
+    volumes:
+      - ./dataStore:/var/lib/mysql:rw
+
+  adminer:
+    image: adminer
+    ports:
+      - 8007:8080
+    depends_on: 
+      - dataStore
