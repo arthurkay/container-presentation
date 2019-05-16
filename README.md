@@ -5,11 +5,8 @@
 ## DOCKER & DOCKER COMPOSE
 
 > Author: Arthur Kalikiti
-
-> Email: arthur@kalikiti.net
-
-> Website: https://arthur.kalikiti.net
-
+> Email: [arthur@kalikiti.net](arthur@kalikiti.net)
+> Website: [https://arthur.kalikiti.net](https://arthur.kalikiti.net)
 
 ### INTRODUCTION
 
@@ -33,7 +30,7 @@ In this code base there are two (2) docker container files, the rest is just cod
 Docker is the container orchestration tool used in this project to build an ubuntu container, with nodejs, npm, and all its dependencies.
 Below is an example of how to structure the Dockerfile with container build instructions.
 
-```
+```Dockerfile
 FROM ubuntu
 
 RUN apt-get update -y && \
@@ -56,7 +53,6 @@ The `WORKDIR` sets a directory where the following commands will be run from.
 
 The `CMD` flag is used to pass the command and parameters to be run upon successful container build and configurations.
 
-
 ### DOCKER-COMPOSE
 
 Docker-commpose is used for creating multiple containers as servies and a virtual network that allows services running in standalone containers to communicate with each other.
@@ -67,7 +63,7 @@ It is also considered an industry standard to put one service per container. Hen
 
 Below is a snippet of what is found in a `Docker-compose.yml` file.
 
-```
+```yaml
 version: '3'
 services:
 
@@ -78,7 +74,7 @@ services:
     volumes:
       - .:/var/www/html/
     restart: always
-    depends_on: 
+    depends_on:
       - dataStore
 ```
 
@@ -147,7 +143,6 @@ Traditionally every time one moves code from one machine to another, there is al
 Because containers don't only store your applications code, but also its dependencies, one can rest assured that it will run without any configurations provided a container orchestartion tool is available on that machine.
 
 Containers also solve the issues of having to to make sure that your code runs on all platforms, because the container acts a sand box to contain your code, configurations, dependecies and other necessities of your application.
-
 
 ### WHERE CAN I RUN DOCKER
 
